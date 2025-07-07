@@ -6,15 +6,14 @@ using UnityEngine.EventSystems;
 public class Inventory_Item : MonoBehaviour, IPointerClickHandler
 {
     public Image iconImage;
-    public TMP_Text nameText;
-    public TMP_Text typeText;
-    public GameObject outlineObject;
+    public Image outlineObject;
 
     private int myIndex = -1;
     private Item currentItem;
 
     private void Start()
     {
+        outlineObject = transform.parent.GetComponent<Image>();
         iconImage = GetComponent<Image>();
         iconImage.enabled = false;
     }
@@ -55,9 +54,13 @@ public class Inventory_Item : MonoBehaviour, IPointerClickHandler
 
     public void SetSelected(bool selected)
     {
-        if (outlineObject != null)
+        if (selected)
         {
-            outlineObject.SetActive(selected);
+            outlineObject.color = Color.white;
+        }
+        else
+        {
+            outlineObject.color = new Color32(255, 215, 0, 255);
         }
     }
 }

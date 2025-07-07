@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -10,32 +11,61 @@ public class InventoryManager : MonoBehaviour
 
     private int selectedIndex = -1;
 
+    [Header("Item Info UI")]
+    private GameObject text_Object;
+    private TMP_Text nameText;
+    private TMP_Text descriptionText;
+
     private void Awake()
     {
         Instance = this;
     }
 
-    public void AddItem(Item item)
+    private void Start()
+    {
+        text_Object = GameObject.Find("Group_Text");
+
+        if (text_Object != null)
+        {
+            nameText = text_Object.transform.Find("NameText")?.GetComponent<TMP_Text>();
+            descriptionText = text_Object.transform.Find("DescriptionText")?.GetComponent<TMP_Text>();
+            text_Object.SetActive(false);
+        }
+    }
+
+    public bool AddItem(Item item)
     {
         if (items.Count >= uiSlots.Count)
         {
-            Debug.LogWarning("Inventory is full");
-            return;
+            return false;
         }
 
         items.Add(item);
         UpdateUI();
+        return true;
     }
 
     public void SelectSlot(int index)
     {
         if (index < 0 || index >= items.Count)
         {
-            Debug.LogWarning("Invalid slot index");
+            selectedIndex = -1;
+            DisplayItemInfo(null);
+            UpdateSelectionVisuals();
             return;
         }
 
-        selectedIndex = index;
+        if (selectedIndex == index)
+        {
+            selectedIndex = -1;
+            DisplayItemInfo(null);
+        }
+        else
+        {
+            selectedIndex = index;
+            DisplayItemInfo(items[index]);
+        }
+
         UpdateSelectionVisuals();
     }
 
@@ -64,6 +94,24 @@ public class InventoryManager : MonoBehaviour
     {
         items.Clear();
         selectedIndex = -1;
+        DisplayItemInfo(null);
         UpdateUI();
+    }
+
+    public void DisplayItemInfo(Item item)
+    {
+        if (text_Object == null || nameText == null || descriptionText == null)
+            return;
+
+        if (item != null)
+        {
+            nameText.text = item.itemName;
+            descriptionText.text = item.description;
+            text_Object.SetActive(true);
+        }
+        else
+        {
+            text_Object.SetActive(false);
+        }
     }
 }
