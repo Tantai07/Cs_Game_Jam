@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using static Item;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class InventoryManager : MonoBehaviour
 
     [Header("Item Info UI")]
     private GameObject text_Object;
+    private GameObject frame_Object;
     private TMP_Text nameText;
     private TMP_Text descriptionText;
 
@@ -24,13 +26,12 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         text_Object = GameObject.Find("Group_Text");
+        frame_Object = GameObject.Find("Group_Frame");
 
-        if (text_Object != null)
-        {
-            nameText = text_Object.transform.Find("NameText")?.GetComponent<TMP_Text>();
-            descriptionText = text_Object.transform.Find("DescriptionText")?.GetComponent<TMP_Text>();
-            text_Object.SetActive(false);
-        }
+        nameText = text_Object.transform.Find("NameText")?.GetComponent<TMP_Text>();
+        descriptionText = text_Object.transform.Find("DescriptionText")?.GetComponent<TMP_Text>();
+        text_Object.SetActive(false);
+        frame_Object.SetActive(false);
     }
 
     public bool AddItem(Item item)
@@ -44,6 +45,40 @@ public class InventoryManager : MonoBehaviour
         UpdateUI();
         return true;
     }
+
+    public void UseSelectedItem()
+    {
+        if (selectedIndex < 0 || selectedIndex >= items.Count)
+        {
+            return;
+        }
+
+        Item itemToUse = items[selectedIndex];
+
+
+        if (itemToUse.type == ItemType.Energy)
+        {
+
+        }
+
+        RemoveSelectedItem();
+    }
+
+    // ลบ item ที่เลือกออกจาก inventory
+    public void RemoveSelectedItem()
+    {
+        if (selectedIndex < 0 || selectedIndex >= items.Count)
+        {
+            return;
+        }
+
+        items.RemoveAt(selectedIndex);
+
+        selectedIndex = -1;
+
+        UpdateUI();
+    }
+
 
     public void SelectSlot(int index)
     {
@@ -100,18 +135,20 @@ public class InventoryManager : MonoBehaviour
 
     public void DisplayItemInfo(Item item)
     {
-        if (text_Object == null || nameText == null || descriptionText == null)
+        if (text_Object == null || frame_Object == null || nameText == null || descriptionText == null)
             return;
 
         if (item != null)
         {
-            nameText.text = item.itemName;
+            nameText.text = item.itemName + " :";
             descriptionText.text = item.description;
             text_Object.SetActive(true);
+            frame_Object.SetActive(true); // <<< แสดง frame พร้อม text
         }
         else
         {
             text_Object.SetActive(false);
+            frame_Object.SetActive(false); // <<< ซ่อน frame พร้อม text
         }
     }
 }
