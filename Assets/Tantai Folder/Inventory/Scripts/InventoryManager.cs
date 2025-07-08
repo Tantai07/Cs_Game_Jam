@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     public List<Item> items = new List<Item>();
     public List<Inventory_Item> uiSlots = new List<Inventory_Item>();
 
-    private int selectedIndex = -1;
+    [SerializeField]private int selectedIndex = -1;
 
     [Header("Item Info UI")]
     private GameObject text_Object;
@@ -64,7 +64,6 @@ public class InventoryManager : MonoBehaviour
         RemoveSelectedItem();
     }
 
-    // ลบ item ที่เลือกออกจาก inventory
     public void RemoveSelectedItem()
     {
         if (selectedIndex < 0 || selectedIndex >= items.Count)
@@ -72,6 +71,8 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
+        text_Object.SetActive(false);
+        frame_Object.SetActive(false);
         items.RemoveAt(selectedIndex);
 
         selectedIndex = -1;
@@ -143,12 +144,12 @@ public class InventoryManager : MonoBehaviour
             nameText.text = item.itemName + " :";
             descriptionText.text = item.description;
             text_Object.SetActive(true);
-            frame_Object.SetActive(true); // <<< แสดง frame พร้อม text
+            frame_Object.SetActive(true);
         }
         else
         {
             text_Object.SetActive(false);
-            frame_Object.SetActive(false); // <<< ซ่อน frame พร้อม text
+            frame_Object.SetActive(false);
         }
     }
 }
