@@ -107,7 +107,7 @@ public class Player_Movement : MonoBehaviour
     private void UpdateStressUI()
     {
         if (stressText != null)
-            stressText.text = $"Stress: {stress:0}";
+            stressText.text = $"Stress: {stress:0}/100";
     }
 
     // ---------- Mission ----------

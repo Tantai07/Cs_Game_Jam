@@ -270,4 +270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b24c0e74e1c2944aa871fca57ba9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_Speed: 2.5
+  move_Speed: 3.2
+  stress: 0
+  maxStress: 100
+  minStress: 0
+  stressText: {fileID: 0}
+  missionText: {fileID: 0}
+  globalVolume: {fileID: 0}
+  friendTarget: 10
