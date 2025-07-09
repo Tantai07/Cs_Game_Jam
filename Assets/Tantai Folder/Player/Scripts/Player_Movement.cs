@@ -1,16 +1,63 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using TMPro;
 
 public class Player_Movement : MonoBehaviour
 {
+    public static Player_Movement Instance;
+
+    [Header("Movement")]
     [SerializeField] private float move_Speed = 5f;
     private Rigidbody2D rb;
     private Vector2 move_Input;
 
+    [Header("Stat")]
+    [Range(0, 100)]
+    public float stress;
+    public float maxStress = 100f;
+    public float minStress = 0f;
+
+    [Header("UI")]
+    private GameObject group;
+    public TextMeshProUGUI stressText;
+    public TextMeshProUGUI missionText;
+
+    [Header("Post Processing")]
+    public Volume globalVolume;
+    private Vignette vignette;
+    private ColorAdjustments colorAdjust;
+
+    [Header("Mission")]
+    public int friendTarget = 3;
+    private int friendFound = 0;
+    private bool missionCompleted = false;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        group = GameObject.Find("UI_Player");
+
+        stressText = group.transform.Find("Text_Stress")?.GetComponent<TextMeshProUGUI>();
+        missionText = group.transform.Find("Text_Mission")?.GetComponent<TextMeshProUGUI>();
+        globalVolume = GameObject.Find("Global Volume")?.GetComponent<Volume>();
+
+        if (globalVolume.profile.TryGet(out vignette))
+            vignette.intensity.overrideState = true;
+
+        if (globalVolume.profile.TryGet(out colorAdjust))
+            colorAdjust.postExposure.overrideState = true;
+
+        UpdateStressUI();
+        UpdateStressVisual();
+        UpdateMissionUI();
     }
 
     private void FixedUpdate()
@@ -21,5 +68,71 @@ public class Player_Movement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         move_Input = context.ReadValue<Vector2>();
+    }
+
+    // ---------- Stress ----------
+    public void AddStress(float amount)
+    {
+        float oldStress = stress;
+        stress = Mathf.Clamp(stress + amount, minStress, maxStress);
+
+        if (stress != oldStress)
+        {
+            UpdateStressUI();
+            UpdateStressVisual();
+        }
+    }
+
+    public void ReduceStress(float amount)
+    {
+        float oldStress = stress;
+        stress = Mathf.Clamp(stress - amount, minStress, maxStress);
+
+        if (stress != oldStress)
+        {
+            UpdateStressUI();
+            UpdateStressVisual();
+        }
+    }
+
+    private void UpdateStressVisual()
+    {
+        if (vignette != null)
+            vignette.intensity.value = Mathf.Lerp(0f, 0.8f, stress / maxStress);
+
+        if (colorAdjust != null)
+            colorAdjust.postExposure.value = Mathf.Lerp(0f, -1f, stress / maxStress);
+    }
+
+    private void UpdateStressUI()
+    {
+        if (stressText != null)
+            stressText.text = $"Stress: {stress:0}";
+    }
+
+    // ---------- Mission ----------
+    public void FindFriend()
+    {
+        if (missionCompleted) return;
+
+        friendFound++;
+
+        if (friendFound >= friendTarget)
+        {
+            missionCompleted = true;
+        }
+
+        UpdateMissionUI();
+    }
+
+    private void UpdateMissionUI()
+    {
+        if (missionText != null)
+        {
+            if (missionCompleted)
+                missionText.text = "Mission: Complete";
+            else
+                missionText.text = $"Mission: ({friendFound}/{friendTarget})";
+        }
     }
 }
