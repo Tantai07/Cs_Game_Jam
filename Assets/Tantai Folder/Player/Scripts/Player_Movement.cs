@@ -13,6 +13,8 @@ public class Player_Movement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 move_Input;
 
+    public bool canMove = true;
+
     [Header("Stat")]
     [Range(0, 100)]
     public float stress;
@@ -36,7 +38,14 @@ public class Player_Movement : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     private void Start()
@@ -62,7 +71,11 @@ public class Player_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = move_Input.normalized * move_Speed;
+        if (canMove){
+            rb.velocity = move_Input.normalized * move_Speed;
+        }else{
+            rb.velocity = Vector2.zero;
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
