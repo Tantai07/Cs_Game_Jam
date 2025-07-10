@@ -1,0 +1,728 @@
+fileFormatVersion: 2
+guid: e3eee06d1d1c198438e66c0ac07d9984
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1707418705260386328
+    second: House-bathroom-Sheet2-export_0
+  - first:
+      213: 8972521409412415754
+    second: House-bathroom-Sheet2-export_1
+  - first:
+      213: -4155789696640222370
+    second: House-bathroom-Sheet2-export_2
+  - first:
+      213: -8166250931490747768
+    second: House-bathroom-Sheet2-export_3
+  - first:
+      213: -9063352906310449790
+    second: House-bathroom-Sheet2-export_4
+  - first:
+      213: 930148781231917410
+    second: House-bathroom-Sheet2-export_5
+  - first:
+      213: 1286332230676885415
+    second: House-bathroom-Sheet2-export_6
+  - first:
+      213: 5297245332475839721
+    second: House-bathroom-Sheet2-export_7
+  - first:
+      213: 436744154176703850
+    second: House-bathroom-Sheet2-export_8
+  - first:
+      213: 6271456165583853527
+    second: House-bathroom-Sheet2-export_9
+  - first:
+      213: 430630199768168396
+    second: House-bathroom-Sheet2-export_10
+  - first:
+      213: -3527862040597441550
+    second: House-bathroom-Sheet2-export_11
+  - first:
+      213: -7865141446728038409
+    second: House-bathroom-Sheet2-export_12
+  - first:
+      213: 609604982949674507
+    second: House-bathroom-Sheet2-export_13
+  - first:
+      213: 4279079188615677491
+    second: House-bathroom-Sheet2-export_14
+  - first:
+      213: -7427495007498937675
+    second: House-bathroom-Sheet2-export_15
+  - first:
+      213: 8868828853586805671
+    second: House-bathroom-Sheet2-export_16
+  - first:
+      213: -7580371992063514192
+    second: House-bathroom-Sheet2-export_17
+  - first:
+      213: -2547764714721548824
+    second: House-bathroom-Sheet2-export_18
+  - first:
+      213: -7241482081260684062
+    second: House-bathroom-Sheet2-export_19
+  - first:
+      213: -7738705282830030655
+    second: House-bathroom-Sheet2-export_20
+  - first:
+      213: -8423283930126583712
+    second: House-bathroom-Sheet2-export_21
+  - first:
+      213: 5422585162332794452
+    second: House-bathroom-Sheet2-export_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 163
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e7e81edbb70e48e0800000000000000
+      internalID: -1707418705260386328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 163
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a014d93feacc48c70800000000000000
+      internalID: 8972521409412415754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_2
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 163
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5bf78a0a4ba356c0800000000000000
+      internalID: -4155789696640222370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 163
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88a8ac16b06abae80800000000000000
+      internalID: -8166250931490747768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 147
+        width: 20
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2858c592d80883280800000000000000
+      internalID: -9063352906310449790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_5
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 140
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 269479d636d88ec00800000000000000
+      internalID: 930148781231917410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_6
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 139
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7afa1a83958f9d110800000000000000
+      internalID: 1286332230676885415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_7
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 140
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e4815a5098938940800000000000000
+      internalID: 5297245332475839721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_8
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 104
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6d4e678e70af0600800000000000000
+      internalID: 436744154176703850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_9
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 104
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d71f0ea720b80750800000000000000
+      internalID: 6271456165583853527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_10
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 104
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc7bcb692e7e9f500800000000000000
+      internalID: 430630199768168396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_11
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 100
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3da9d5a248a0fc0800000000000000
+      internalID: -3527862040597441550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_12
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 68
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7c297868769d290800000000000000
+      internalID: -7865141446728038409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_13
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 68
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0ef50e8080c57800800000000000000
+      internalID: 609604982949674507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_14
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 68
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 336443bb9d7526b30800000000000000
+      internalID: 4279079188615677491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_15
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 68
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bad90ba4ac3ce890800000000000000
+      internalID: -7427495007498937675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_16
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 36
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a3c6cf6ad8641b70800000000000000
+      internalID: 8868828853586805671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_17
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 36
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b9ebb3f5db1dc690800000000000000
+      internalID: -7580371992063514192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_18
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 36
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e56fb79d7584acd0800000000000000
+      internalID: -2547764714721548824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_19
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 36
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ecb9130a66118b90800000000000000
+      internalID: -7241482081260684062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 4
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c82a73fb889a9490800000000000000
+      internalID: -7738705282830030655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_21
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 6
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0687c8ed4eb7a1b80800000000000000
+      internalID: -8423283930126583712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House-bathroom-Sheet2-export_22
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 6
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45e662d9974e04b40800000000000000
+      internalID: 5422585162332794452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      House-bathroom-Sheet2-export_0: -1707418705260386328
+      House-bathroom-Sheet2-export_1: 8972521409412415754
+      House-bathroom-Sheet2-export_10: 430630199768168396
+      House-bathroom-Sheet2-export_11: -3527862040597441550
+      House-bathroom-Sheet2-export_12: -7865141446728038409
+      House-bathroom-Sheet2-export_13: 609604982949674507
+      House-bathroom-Sheet2-export_14: 4279079188615677491
+      House-bathroom-Sheet2-export_15: -7427495007498937675
+      House-bathroom-Sheet2-export_16: 8868828853586805671
+      House-bathroom-Sheet2-export_17: -7580371992063514192
+      House-bathroom-Sheet2-export_18: -2547764714721548824
+      House-bathroom-Sheet2-export_19: -7241482081260684062
+      House-bathroom-Sheet2-export_2: -4155789696640222370
+      House-bathroom-Sheet2-export_20: -7738705282830030655
+      House-bathroom-Sheet2-export_21: -8423283930126583712
+      House-bathroom-Sheet2-export_22: 5422585162332794452
+      House-bathroom-Sheet2-export_3: -8166250931490747768
+      House-bathroom-Sheet2-export_4: -9063352906310449790
+      House-bathroom-Sheet2-export_5: 930148781231917410
+      House-bathroom-Sheet2-export_6: 1286332230676885415
+      House-bathroom-Sheet2-export_7: 5297245332475839721
+      House-bathroom-Sheet2-export_8: 436744154176703850
+      House-bathroom-Sheet2-export_9: 6271456165583853527
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
