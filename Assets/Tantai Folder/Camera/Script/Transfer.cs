@@ -33,13 +33,14 @@ public class Transfer : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             anim_Transition.SetTrigger("Start");
-            Player_Movement.Instance.canMove = false;
             StartCoroutine(TransferScene(collision.gameObject));
         }
     }
 
     private IEnumerator TransferScene(GameObject player)
     {
+        yield return new WaitForSeconds(0.5f);
+        Player_Movement.Instance.canMove = false;
         yield return new WaitForSeconds(1.2f);
 
         if (Transfer_Player_To_Point != null)
