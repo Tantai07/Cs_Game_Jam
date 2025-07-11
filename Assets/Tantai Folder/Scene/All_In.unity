@@ -189,6 +189,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 180230806502595278, guid: 4ae5e2d9f2b546a449f0b90c0d0874bc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3339258636388127466, guid: 4ae5e2d9f2b546a449f0b90c0d0874bc, type: 3}
       propertyPath: m_Name
       value: UI_Player
@@ -330,6 +334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square
       objectReference: {fileID: 0}
+    - target: {fileID: 9020689690746338592, guid: ca823f9f778e43244a3a27e941ac5a5c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -343,9 +351,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2442041266601426624, guid: dc1e70f828ebc944091dcc0c6ba2ca24, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 2000
+    - target: {fileID: 1901034131406118205, guid: dc1e70f828ebc944091dcc0c6ba2ca24, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5579550739386602227, guid: dc1e70f828ebc944091dcc0c6ba2ca24, type: 3}
       propertyPath: m_Pivot.x
@@ -904,6 +912,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4936115259507027473, guid: d50923f57e65dc04394fc1c3d8bbcbee, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5666799549660899898, guid: d50923f57e65dc04394fc1c3d8bbcbee, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1192,6 +1204,6 @@ SceneRoots:
   - {fileID: 97079560}
   - {fileID: 897116683}
   - {fileID: 1337602413}
+  - {fileID: 120566523}
   - {fileID: 1279455633}
   - {fileID: 971062288}
-  - {fileID: 120566523}

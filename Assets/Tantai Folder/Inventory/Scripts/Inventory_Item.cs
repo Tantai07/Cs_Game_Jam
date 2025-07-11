@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.EventSystems;
 
-public class Inventory_Item : MonoBehaviour, IPointerClickHandler
+public class Inventory_Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Image iconImage;
     public Image outlineObject;
@@ -44,11 +43,31 @@ public class Inventory_Item : MonoBehaviour, IPointerClickHandler
         SetSelected(false);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)
     {
         if (currentItem != null && myIndex >= 0)
         {
             InventoryManager.Instance.SelectSlot(myIndex);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        InventoryManager.Instance.SelectSlot(-1);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (myIndex < 0 || currentItem == null)
+            return;
+
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            InventoryManager.Instance.UseSelectedItem();
+        }
+        else if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            InventoryManager.Instance.RemoveSelectedItem();
         }
     }
 

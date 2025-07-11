@@ -65,7 +65,7 @@ public class InventoryManager : MonoBehaviour
 
         if (itemToUse.type == ItemType.Energy)
         {
-            Player_Movement.Instance.ReduceStress(20);
+            Player_Movement.Instance.ReduceStress(itemToUse.recover);
         }
 
         RemoveSelectedItem();

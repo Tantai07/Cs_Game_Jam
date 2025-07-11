@@ -136,7 +136,7 @@ public class Player_Movement : MonoBehaviour
     private void UpdateStressVisual()
     {
         if (vignette != null)
-            vignette.intensity.value = Mathf.Lerp(0f, 0.8f, stress / maxStress);
+            vignette.intensity.value = Mathf.Lerp(0.17f, 0.8f, stress / maxStress);
 
         if (colorAdjust != null)
             colorAdjust.postExposure.value = Mathf.Lerp(0f, -1f, stress / maxStress);
