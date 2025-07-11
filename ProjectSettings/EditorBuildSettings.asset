@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tantai Folder/Scene/Before_Start_Game.unity
     guid: e3c621217499f1a4f8a7ee66652e6985
+  - enabled: 1
+    path: Assets/Tantai Folder/Scene/All_In.unity
+    guid: ca6e028de039641419c9ad4c4075c63a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using TMPro;
 using Unity.Cinemachine;
+using System.Collections;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -16,22 +17,26 @@ public class Player_Movement : MonoBehaviour
 
     public bool canMove = true;
 
+    [Space(5)]
     [Header("Stat")]
     [Range(0, 100)]
     public float stress;
     public float maxStress = 100f;
     public float minStress = 0f;
 
+    [Space(5)]
     [Header("UI")]
     private GameObject group;
     public TextMeshProUGUI stressText;
     public TextMeshProUGUI missionText;
 
+    [Space(5)]
     [Header("Post Processing")]
     public Volume globalVolume;
     private Vignette vignette;
     private ColorAdjustments colorAdjust;
 
+    [Space(5)]
     [Header("Mission")]
     public int friendTarget = 3;
     private int friendFound = 0;
@@ -40,6 +45,12 @@ public class Player_Movement : MonoBehaviour
     [Space(5)]
     [Header("Cinemachine")]
     public CinemachineCamera cine_Cam;
+
+    [Space(5)]
+    [Header("Transition")]
+    public GameObject Group_Transition;
+    [SerializeField] Animator anim_Transition;
+    public float delay = 1.5f;
 
     private void Awake()
     {
@@ -75,6 +86,12 @@ public class Player_Movement : MonoBehaviour
         UpdateStressUI();
         UpdateStressVisual();
         UpdateMissionUI();
+
+        Group_Transition = GameObject.Find("Group_Transition");
+        anim_Transition = Group_Transition.GetComponentInChildren<Animator>();
+
+        anim_Transition.SetTrigger("Start_Scene");
+        StartCoroutine(FinishSceneTransition());
     }
 
     private void FixedUpdate()
@@ -145,7 +162,6 @@ public class Player_Movement : MonoBehaviour
 
         UpdateMissionUI();
     }
-
     private void UpdateMissionUI()
     {
         if (missionText != null)
@@ -155,5 +171,10 @@ public class Player_Movement : MonoBehaviour
             else
                 missionText.text = $"Friends: ({friendFound}/{friendTarget})";
         }
+    }
+    private IEnumerator FinishSceneTransition()
+    {
+        yield return new WaitForSeconds(delay);
+        anim_Transition.SetTrigger("End");
     }
 }
