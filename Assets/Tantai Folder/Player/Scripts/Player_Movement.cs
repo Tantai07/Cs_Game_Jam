@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using TMPro;
+using Unity.Cinemachine;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class Player_Movement : MonoBehaviour
     private int friendFound = 0;
     private bool missionCompleted = false;
 
+    [Space(5)]
+    [Header("Cinemachine")]
+    public CinemachineCamera cine_Cam;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -63,6 +68,9 @@ public class Player_Movement : MonoBehaviour
 
         if (globalVolume.profile.TryGet(out colorAdjust))
             colorAdjust.postExposure.overrideState = true;
+
+        cine_Cam = FindObjectOfType<CinemachineCamera>();
+        cine_Cam.Follow = transform;
 
         UpdateStressUI();
         UpdateStressVisual();
