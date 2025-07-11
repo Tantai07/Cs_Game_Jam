@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Start_Scene
       objectReference: {fileID: 0}
+    - target: {fileID: 4653178075264343617, guid: de0cf357df4829f4c8ec09cea7c97030, type: 3}
+      propertyPath: m_text
+      value: Introvert
+      objectReference: {fileID: 0}
     - target: {fileID: 9097699121063872337, guid: de0cf357df4829f4c8ec09cea7c97030, type: 3}
       propertyPath: m_Pivot.x
       value: 0

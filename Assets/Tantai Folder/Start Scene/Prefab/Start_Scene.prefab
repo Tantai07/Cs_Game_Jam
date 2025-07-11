@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Find Friend In Party
+  m_text: Introvert
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d96f447be22e91b468594ce302985abb, type: 2}
   m_sharedMaterial: {fileID: -7875243367864325528, guid: d96f447be22e91b468594ce302985abb, type: 2}

@@ -60,7 +60,7 @@ public class PlayTextInteractiveSmooth : MonoBehaviour, IPointerEnterHandler, IP
         {
             currentScaleTarget = originalScale;
             currentColorTarget = originalColor;
-            SceneManager.LoadScene(sceneToLoad);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
