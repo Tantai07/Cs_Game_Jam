@@ -153,7 +153,7 @@ public class Player_Movement : MonoBehaviour
             if (missionCompleted)
                 missionText.text = "Mission: Complete";
             else
-                missionText.text = $"Mission: ({friendFound}/{friendTarget})";
+                missionText.text = $"Friends: ({friendFound}/{friendTarget})";
         }
     }
 }

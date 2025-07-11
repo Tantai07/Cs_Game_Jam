@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Tantai Folder/Scene/Start_Scene.unity
+    guid: 80c6fe84a1f4fe345a7939bc4b0a70db
+  - enabled: 1
+    path: Assets/Tantai Folder/Scene/Before_Start_Game.unity
+    guid: e3c621217499f1a4f8a7ee66652e6985
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
