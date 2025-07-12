@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Jade
   m_EditorClassIdentifier: 
   firstTimeDialogues:
-  - Hello Im Jade Fu Kaiad Lolid HEHEHEE
-  - YED GAN MAI
-  - EIEI
+  - 'How do you know the code? '
   repeatDialogues:
-  - OK
+  - Let's play the game first.
+  - 'I''ll give you the bathroom key. '
+  conditionalDialogues: []

@@ -16,6 +16,6 @@ MonoBehaviour:
   - Here comes my hero .
   - 'Want to know something cool? '
   repeatDialogues:
-  - 'Help me find it first. '
+  - 'Help me find a duck. '
   conditionalDialogues:
   - Thanks.  L K N T
