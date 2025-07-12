@@ -118,7 +118,6 @@ public class Player_Movement : MonoBehaviour
     private void UpdateAnimation(Vector2 move)
     {
         float speed = move.sqrMagnitude;
-        animator.SetFloat("Speed", speed);
 
         if (speed > 0.01f)
         {
