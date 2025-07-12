@@ -13,6 +13,6 @@ public class Item
     public enum ItemType
     {
         Energy,
-
+        Duck
     }
 }

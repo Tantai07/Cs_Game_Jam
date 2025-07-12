@@ -63,11 +63,12 @@ public class Inventory_Item : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         if (eventData.button == PointerEventData.InputButton.Left)
         {
+            if (currentItem.itemName == "Duck") return;
             InventoryManager.Instance.UseSelectedItem();
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (currentItem.itemName == "Teddy Bear") return;
+            if (currentItem.itemName == "Duck") return;
 
             InventoryManager.Instance.RemoveSelectedItem();
         }

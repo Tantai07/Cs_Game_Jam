@@ -207,6 +207,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   hintE_UI: {fileID: 0}
+  hasTalked: 0
+  useCondition: 1
+  condition: 2
+  conditionValue: 1
+  correctPassword: 1234
+  givesItem: 0
+  itemToGive:
+    itemName: 
+    description: 
+    type: 0
+    icon: {fileID: 0}
+    recover: 0
+  onlyGiveOnce: 1
 --- !u!1 &6783059575088249211
 GameObject:
   m_ObjectHideFlags: 0

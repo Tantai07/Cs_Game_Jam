@@ -24,6 +24,7 @@ public class NPCInteract : MonoBehaviour
     [Header("Password Condition")]
     public string correctPassword = "1234";
     private bool passwordVerified = false;
+    public string wrongPasswordDialogue = "Go Went Gone";
 
     [Header("Item Reward")]
     public bool givesItem = false;
@@ -80,18 +81,10 @@ public class NPCInteract : MonoBehaviour
 
     void StartDialogue()
     {
-        if (useCondition && condition == ConditionType.Password && !passwordVerified)
-        {
-            PasswordUIManager.Instance.Open(this);
-            return;
-        }
-
         isTalking = true;
         dialogueIndex = 0;
 
-        currentDialogue = (useCondition && IsConditionMet())
-            ? dialogueData.conditionalDialogues
-            : (hasTalked ? dialogueData.repeatDialogues : dialogueData.firstTimeDialogues);
+        currentDialogue = hasTalked ? dialogueData.repeatDialogues : dialogueData.firstTimeDialogues;
 
         DialogueManager.Instance.OnDialogueComplete = ContinueDialogue;
 
@@ -99,13 +92,30 @@ public class NPCInteract : MonoBehaviour
             DialogueManager.Instance.ShowDialogue(npcName, currentDialogue[dialogueIndex]);
     }
 
-    // เรียกเมื่อรหัสถูก
     public void OnPasswordCorrect()
     {
         passwordVerified = true;
-        StartDialogue();
+
+        currentDialogue = dialogueData.conditionalDialogues;
+
+        dialogueIndex = 0;
+
+        DialogueManager.Instance.ShowDialogue(npcName, currentDialogue[dialogueIndex]);
+
+        isTalking = true;
+    }
+    public void OnPasswordWrong()
+    {
+        DialogueManager.Instance.OnDialogueComplete = HideDialogueAfterWrong;
+        DialogueManager.Instance.ShowDialogue(npcName, wrongPasswordDialogue);
     }
 
+    private void HideDialogueAfterWrong()
+    {
+        DialogueManager.Instance.HideDialogue();
+        DialogueManager.Instance.OnDialogueComplete = null;
+        isTalking = false;
+    }
     bool IsConditionMet()
     {
         switch (condition)
@@ -114,7 +124,7 @@ public class NPCInteract : MonoBehaviour
                 return Player_Movement.Instance.friendFound >= conditionValue;
 
             case ConditionType.HasItem:
-                return InventoryManager.Instance.HasItem("Teddy Bear");
+                return InventoryManager.Instance.HasItem("Duck");
 
             case ConditionType.Password:
                 return passwordVerified;
@@ -124,26 +134,46 @@ public class NPCInteract : MonoBehaviour
         }
     }
 
-
     void ContinueDialogue()
     {
         dialogueIndex++;
+
         if (dialogueIndex < currentDialogue.Length)
         {
             DialogueManager.Instance.ShowDialogue(npcName, currentDialogue[dialogueIndex]);
         }
         else
         {
-            EndDialogue();
-
-            if (!hasTalked && npcType == NPCType.Extrovert)
+            if (!hasTalked)
             {
-                Player_Movement.Instance.AddStress(30);
-                Player_Movement.Instance.FindFriend();
+                hasTalked = true;
+
+                if (npcType == NPCType.Extrovert)
+                {
+                    Player_Movement.Instance.AddStress(30);
+                    Player_Movement.Instance.FindFriend();
+                }
+
+                GiveItemToPlayer();
+                EndDialogue();
+                return;
             }
 
-            GiveItemToPlayer();
-            hasTalked = true;
+            if (useCondition && condition == ConditionType.Password && !passwordVerified)
+            {
+                PasswordUIManager.Instance.Open(this);
+                return;
+            }
+
+            if (useCondition && IsConditionMet() && currentDialogue != dialogueData.conditionalDialogues)
+            {
+                currentDialogue = dialogueData.conditionalDialogues;
+                dialogueIndex = 0;
+                DialogueManager.Instance.ShowDialogue(npcName, currentDialogue[dialogueIndex]);
+                return;
+            }
+
+            EndDialogue();
         }
     }
 

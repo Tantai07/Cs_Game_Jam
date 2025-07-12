@@ -343,6 +343,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   hintE_UI: {fileID: 8671609314704292300}
+  hasTalked: 0
+  useCondition: 0
+  condition: 0
+  conditionValue: 1
+  correctPassword: 1234
+  wrongPasswordDialogue: Go Went Gone
+  givesItem: 0
+  itemToGive:
+    itemName: 
+    description: 
+    type: 0
+    icon: {fileID: 0}
+    recover: 0
+  onlyGiveOnce: 1
 --- !u!1 &8671609314704292300
 GameObject:
   m_ObjectHideFlags: 0

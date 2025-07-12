@@ -44,13 +44,13 @@ public class PasswordUIManager : MonoBehaviour
 
         if (userInput == currentNPC.correctPassword)
         {
-            currentNPC.OnPasswordCorrect(); // แจ้งกลับไปยัง NPC
+            currentNPC.OnPasswordCorrect();
             Close();
         }
         else
         {
-            Debug.Log("Wrong password!");
-            inputField.text = "";
+            currentNPC.OnPasswordWrong();
+            Close();
         }
     }
 }
