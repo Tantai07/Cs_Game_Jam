@@ -61,11 +61,11 @@ public class AimLabUIManager : MonoBehaviour
 
         if (score >= 100)
         {
-            statusText.text = "ผ่าน! 🎉";
+            statusText.text = "Win! 🎉";
         }
         else
         {
-            statusText.text = "ไม่ผ่าน 😢";
+            statusText.text = "Failed 😢";
         }
     }
 
