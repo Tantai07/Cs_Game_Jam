@@ -102,14 +102,15 @@ public class NPCInteract : MonoBehaviour
         passwordVerified = true;
 
         currentDialogue = dialogueData.conditionalDialogues;
-
         dialogueIndex = 0;
 
+        DialogueManager.Instance.OnDialogueComplete = ContinueDialogue;
         DialogueManager.Instance.ShowDialogue(npcName, currentDialogue[dialogueIndex]);
 
         isTalking = true;
         Player_Movement.Instance.check_go_up = true;
     }
+
     public void OnPasswordWrong()
     {
         DialogueManager.Instance.OnDialogueComplete = HideDialogueAfterWrong;
