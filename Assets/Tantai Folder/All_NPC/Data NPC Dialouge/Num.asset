@@ -16,4 +16,5 @@ MonoBehaviour:
   - 'Hmm, the food is delicious. '
   repeatDialogues:
   - 'Looking for ice? Try looking in the bathroom. '
+  - 'Are you six or not? '
   conditionalDialogues: []
