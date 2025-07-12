@@ -141,8 +141,9 @@ public class NPCInteract : MonoBehaviour
 
             case ConditionType.FinishQuest:
                 Player_Movement player = Player_Movement.Instance;
-                if (player.Aimlab && player.Wire && player.Rotate)
+                if (player.Aimlab)
                 {
+                    InventoryManager.Instance.AddItem(itemToGive);
                     return true;
                 }
                 return false;

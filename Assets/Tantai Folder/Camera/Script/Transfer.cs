@@ -17,7 +17,9 @@ public class Transfer : MonoBehaviour
     [SerializeField] Animator anim_Transition;
 
     [Space(5)]
+    [Header("Type Optional")]
     public bool stair;
+    public bool last_Room;
 
     [Space(5)]
     public float dealy = 1.2f;
@@ -42,6 +44,15 @@ public class Transfer : MonoBehaviour
         {
             if (Player_Movement.Instance.check_go_up)
             {
+                anim_Transition.SetTrigger("Start");
+                StartCoroutine(TransferScene(collision.gameObject));
+            }
+        }
+        else if (last_Room)
+        {
+            if (InventoryManager.Instance.HasItem("Key"))
+            {
+                InventoryManager.Instance.RemoveItemByName("Key");
                 anim_Transition.SetTrigger("Start");
                 StartCoroutine(TransferScene(collision.gameObject));
             }
