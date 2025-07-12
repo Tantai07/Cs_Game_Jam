@@ -75,6 +75,17 @@ public class InventoryManager : MonoBehaviour
 
         RemoveSelectedItem();
     }
+    public bool RemoveItemByName(string itemName)
+    {
+        int index = items.FindIndex(item => item.itemName == itemName);
+        if (index >= 0)
+        {
+            items.RemoveAt(index);
+            UpdateUI();
+            return true;
+        }
+        return false;
+    }
 
     public void RemoveSelectedItem()
     {

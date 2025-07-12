@@ -124,7 +124,12 @@ public class NPCInteract : MonoBehaviour
                 return Player_Movement.Instance.friendFound >= conditionValue;
 
             case ConditionType.HasItem:
-                return InventoryManager.Instance.HasItem("Duck");
+                if (InventoryManager.Instance.HasItem("Duck"))
+                {
+                    InventoryManager.Instance.RemoveItemByName("Duck");
+                    return true;
+                }
+                return false;
 
             case ConditionType.Password:
                 return passwordVerified;
