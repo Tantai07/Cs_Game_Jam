@@ -60,6 +60,9 @@ public class Player_Movement : MonoBehaviour
     public float delay_Close = 3f;
     private Coroutine inventoryFullRoutine;
 
+    [Space(5)]
+    public bool check_go_up;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

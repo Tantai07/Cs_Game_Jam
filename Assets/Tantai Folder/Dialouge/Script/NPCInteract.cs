@@ -103,6 +103,7 @@ public class NPCInteract : MonoBehaviour
         DialogueManager.Instance.ShowDialogue(npcName, currentDialogue[dialogueIndex]);
 
         isTalking = true;
+        Player_Movement.Instance.check_go_up = true;
     }
     public void OnPasswordWrong()
     {

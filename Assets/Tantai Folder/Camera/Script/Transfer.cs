@@ -16,6 +16,9 @@ public class Transfer : MonoBehaviour
     public GameObject Group_Transition;
     [SerializeField] Animator anim_Transition;
 
+    [Space(5)]
+    public bool stair;
+
     private void Start()
     {
         Group_Transition = GameObject.Find("Group_Transition");
@@ -30,12 +33,23 @@ public class Transfer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (!collision.CompareTag("Player")) return;
+
+        if (stair)
+        {
+            if (Player_Movement.Instance.check_go_up)
+            {
+                anim_Transition.SetTrigger("Start");
+                StartCoroutine(TransferScene(collision.gameObject));
+            }
+        }
+        else
         {
             anim_Transition.SetTrigger("Start");
             StartCoroutine(TransferScene(collision.gameObject));
         }
     }
+
 
     private IEnumerator TransferScene(GameObject player)
     {
