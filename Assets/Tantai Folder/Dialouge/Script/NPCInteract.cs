@@ -2,7 +2,7 @@
 
 public class NPCInteract : MonoBehaviour
 {
-    public string npcName = "???"; // << เพิ่มตรงนี้
+    public string npcName = "???";
     public DialogueData dialogueData;
     public NPCType npcType;
 
@@ -16,10 +16,10 @@ public class NPCInteract : MonoBehaviour
 
     private string[] currentDialogue;
     private int dialogueIndex = 0;
-
     private void Start()
     {
-        playerLayer = GameObject.FindGameObjectWithTag("Player").layer;   
+        playerLayer = LayerMask.GetMask("Default");
+        hintE_UI = transform.Find("Text").gameObject;
     }
     private void Update()
     {
@@ -27,6 +27,8 @@ public class NPCInteract : MonoBehaviour
 
         if (isPlayerNearby && !isTalking && UnityEngine.InputSystem.Keyboard.current.eKey.wasPressedThisFrame)
         {
+            Player_Movement.Instance.AddStress(30);
+            hintE_UI.SetActive(false);
             StartDialogue();
         }
 
@@ -41,7 +43,7 @@ public class NPCInteract : MonoBehaviour
         Collider2D hit = Physics2D.OverlapCircle(transform.position, detectRadius, playerLayer);
         isPlayerNearby = (hit != null && hit.CompareTag("Player"));
 
-        if (hintE_UI != null)
+        if (hintE_UI != null && !isTalking)
             hintE_UI.SetActive(isPlayerNearby);
     }
 
@@ -70,7 +72,9 @@ public class NPCInteract : MonoBehaviour
             EndDialogue();
 
             if (!hasTalked && npcType == NPCType.Extrovert)
+            {
                 Player_Movement.Instance.FindFriend();
+            }
 
             hasTalked = true;
         }

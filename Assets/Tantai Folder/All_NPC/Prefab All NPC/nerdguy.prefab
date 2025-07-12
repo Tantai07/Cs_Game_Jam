@@ -341,8 +341,8 @@ MonoBehaviour:
   detectRadius: 1.5
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
-  hintE_UI: {fileID: 0}
+    m_Bits: 1
+  hintE_UI: {fileID: 8671609314704292300}
 --- !u!1 &8671609314704292300
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5212140835399201647
 RectTransform:
   m_ObjectHideFlags: 0

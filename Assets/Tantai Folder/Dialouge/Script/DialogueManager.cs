@@ -9,7 +9,8 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler
     public static DialogueManager Instance;
 
     public GameObject dialoguePanel;
-    public TMP_Text npcNameText;      // <== เพิ่ม
+    public GameObject inventory;
+    public TMP_Text npcNameText;
     public TMP_Text dialogueText;
     public float typingSpeed = 0.03f;
 
@@ -22,10 +23,15 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler
     {
         if (Instance == null) Instance = this;
     }
-
+    private void Start()
+    {
+        inventory = GameObject.Find("Canvas_Equipment");
+    }
     public void ShowDialogue(string npcName, string message)
     {
         dialoguePanel.SetActive(true);
+        Player_Movement.Instance.canMove = false;
+        inventory.SetActive(false);
 
         if (npcNameText != null)
             npcNameText.text = npcName;
@@ -42,6 +48,8 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler
             StopCoroutine(typingCoroutine);
 
         dialoguePanel.SetActive(false);
+        Player_Movement.Instance.canMove = true;
+        inventory.SetActive(true);
         dialogueText.text = "";
         if (npcNameText != null) npcNameText.text = "";
         isTyping = false;

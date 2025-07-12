@@ -112,7 +112,7 @@ public class Player_Movement : MonoBehaviour
 
     private void LateUpdate()
     {
-        UpdateAnimation(move_Input);
+        if (canMove) UpdateAnimation(move_Input);
     }
 
     private void UpdateAnimation(Vector2 move)
