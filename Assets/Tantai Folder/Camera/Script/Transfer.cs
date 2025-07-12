@@ -19,6 +19,9 @@ public class Transfer : MonoBehaviour
     [Space(5)]
     public bool stair;
 
+    [Space(5)]
+    public float dealy = 1.2f;
+
     private void Start()
     {
         Group_Transition = GameObject.Find("Group_Transition");
@@ -55,17 +58,18 @@ public class Transfer : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         Player_Movement.Instance.canMove = false;
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(dealy);
 
         if (Transfer_Player_To_Point != null)
         {
             player.transform.position = Transfer_Player_To_Point.position;
         }
 
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(0.4f);
 
         anim_Transition.SetTrigger("End");
         yield return new WaitForSeconds(1f);
         Player_Movement.Instance.canMove = true;
+
     }
 }
