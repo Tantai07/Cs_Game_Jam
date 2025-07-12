@@ -18,4 +18,5 @@ MonoBehaviour:
   - 'If you want to go up the stairs, tell me the code. '
   repeatDialogues:
   - 'If you want to go up the stairs, tell me the code. '
-  conditionalDialogues: []
+  conditionalDialogues:
+  - You can go up.
