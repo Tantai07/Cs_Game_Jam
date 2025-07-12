@@ -15,7 +15,6 @@ MonoBehaviour:
   firstTimeDialogues:
   - 'How do you know the code? '
   - Let's play the game first.
-  - 'I''ll give you the bathroom key. '
   repeatDialogues:
   - Let's play the game first.
   - 'I''ll give you the bathroom key. '
