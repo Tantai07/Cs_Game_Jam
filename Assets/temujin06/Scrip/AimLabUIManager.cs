@@ -61,11 +61,11 @@ public class AimLabUIManager : MonoBehaviour
 
         if (score >= 100)
         {
-            statusText.text = "Win! 🎉";
+            statusText.text = "Win!";
         }
         else
         {
-            statusText.text = "Failed 😢";
+            statusText.text = "Failed";
         }
     }
 
@@ -79,14 +79,19 @@ public class AimLabUIManager : MonoBehaviour
     {
         if (!isRunning) return;
 
-        Vector2 randPos = new Vector2(
-            Random.Range(0f, targetArea.rect.width),
-            Random.Range(0f, targetArea.rect.height)
-        );
+        Vector2 areaSize = targetArea.rect.size;
+
+        // เอาขนาดของเป้า (TargetPrefab) จริงมาใช้
+        float targetWidth = 40f;
+        float targetHeight = 40f;
+
+        // จำกัดสุ่มพิกัดภายในขอบของ TargetArea
+        float x = Random.Range(targetWidth / 2f, areaSize.x - targetWidth / 2f);
+        float y = Random.Range(targetHeight / 2f, areaSize.y - targetHeight / 2f);
 
         GameObject target = Instantiate(targetPrefab, targetArea);
         RectTransform rt = target.GetComponent<RectTransform>();
-        rt.anchoredPosition = randPos;
+        rt.anchoredPosition = new Vector2(x, y); // จุดกลางของเป้า
 
         Button btn = target.GetComponent<Button>();
         btn.onClick.AddListener(() => {
@@ -97,6 +102,8 @@ public class AimLabUIManager : MonoBehaviour
 
         activeTargets.Add(target);
     }
+
+
 
     void UpdateScoreText()
     {
