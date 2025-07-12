@@ -1004,6 +1004,18 @@ PrefabInstance:
       propertyPath: detectOffset.y
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 5478720061092528143, guid: a446f73ef274c2e48b181b1100768c13, type: 3}
+      propertyPath: itemToGive.icon
+      value: 
+      objectReference: {fileID: -6680793824773953899, guid: 2c9f4d672c2bf754da2be29adfd0424c, type: 3}
+    - target: {fileID: 5478720061092528143, guid: a446f73ef274c2e48b181b1100768c13, type: 3}
+      propertyPath: itemToGive.recover
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478720061092528143, guid: a446f73ef274c2e48b181b1100768c13, type: 3}
+      propertyPath: itemToGive.description
+      value: Restores 20 energy.
+      objectReference: {fileID: 0}
     - target: {fileID: 8000029355221051804, guid: a446f73ef274c2e48b181b1100768c13, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -1334,12 +1346,32 @@ PrefabInstance:
       value: Eggplant
       objectReference: {fileID: 0}
     - target: {fileID: 7318921392458855503, guid: 8e2caf5442d6c38488276fa092e5e52f, type: 3}
+      propertyPath: givesItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318921392458855503, guid: 8e2caf5442d6c38488276fa092e5e52f, type: 3}
       propertyPath: detectOffset.x
       value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 7318921392458855503, guid: 8e2caf5442d6c38488276fa092e5e52f, type: 3}
       propertyPath: detectOffset.y
       value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318921392458855503, guid: 8e2caf5442d6c38488276fa092e5e52f, type: 3}
+      propertyPath: itemToGive.icon
+      value: 
+      objectReference: {fileID: -6680793824773953899, guid: 2c9f4d672c2bf754da2be29adfd0424c, type: 3}
+    - target: {fileID: 7318921392458855503, guid: 8e2caf5442d6c38488276fa092e5e52f, type: 3}
+      propertyPath: itemToGive.recover
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318921392458855503, guid: 8e2caf5442d6c38488276fa092e5e52f, type: 3}
+      propertyPath: itemToGive.itemName
+      value: Energy drink
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318921392458855503, guid: 8e2caf5442d6c38488276fa092e5e52f, type: 3}
+      propertyPath: itemToGive.description
+      value: 'Restores 20 energy. '
       objectReference: {fileID: 0}
     - target: {fileID: 8244642744449420999, guid: 8e2caf5442d6c38488276fa092e5e52f, type: 3}
       propertyPath: m_SortingOrder
@@ -3028,12 +3060,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4406038026949156329, guid: 133e4b3ef7a07724fb361f728c71d17c, type: 3}
+      propertyPath: givesItem
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406038026949156329, guid: 133e4b3ef7a07724fb361f728c71d17c, type: 3}
       propertyPath: detectOffset.x
       value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 4406038026949156329, guid: 133e4b3ef7a07724fb361f728c71d17c, type: 3}
       propertyPath: detectOffset.y
       value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406038026949156329, guid: 133e4b3ef7a07724fb361f728c71d17c, type: 3}
+      propertyPath: correctPassword
+      value: 3168
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406038026949156329, guid: 133e4b3ef7a07724fb361f728c71d17c, type: 3}
+      propertyPath: wrongPasswordDialogue
+      value: 'Looks like the code is wrong, guys. '
       objectReference: {fileID: 0}
     - target: {fileID: 6687112642382230370, guid: 133e4b3ef7a07724fb361f728c71d17c, type: 3}
       propertyPath: m_Name
@@ -3065,12 +3109,32 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6677118097726883112, guid: 292dcbde506639c499420d555763b3b0, type: 3}
+      propertyPath: givesItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677118097726883112, guid: 292dcbde506639c499420d555763b3b0, type: 3}
       propertyPath: detectOffset.x
       value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 6677118097726883112, guid: 292dcbde506639c499420d555763b3b0, type: 3}
       propertyPath: detectOffset.y
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677118097726883112, guid: 292dcbde506639c499420d555763b3b0, type: 3}
+      propertyPath: itemToGive.icon
+      value: 
+      objectReference: {fileID: 7331914029826087500, guid: f017d6a16af20d44a83019a7b76d9632, type: 3}
+    - target: {fileID: 6677118097726883112, guid: 292dcbde506639c499420d555763b3b0, type: 3}
+      propertyPath: itemToGive.type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677118097726883112, guid: 292dcbde506639c499420d555763b3b0, type: 3}
+      propertyPath: itemToGive.itemName
+      value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677118097726883112, guid: 292dcbde506639c499420d555763b3b0, type: 3}
+      propertyPath: itemToGive.description
+      value: 'Unlock the locked bathroom door '
       objectReference: {fileID: 0}
     - target: {fileID: 7136372827887065158, guid: 292dcbde506639c499420d555763b3b0, type: 3}
       propertyPath: m_LocalPosition.x
