@@ -80,28 +80,30 @@ public class AimLabUIManager : MonoBehaviour
         if (!isRunning) return;
 
         Vector2 areaSize = targetArea.rect.size;
-
-        // เอาขนาดของเป้า (TargetPrefab) จริงมาใช้
         float targetWidth = 40f;
         float targetHeight = 40f;
 
-        // จำกัดสุ่มพิกัดภายในขอบของ TargetArea
         float x = Random.Range(targetWidth / 2f, areaSize.x - targetWidth / 2f);
         float y = Random.Range(targetHeight / 2f, areaSize.y - targetHeight / 2f);
 
         GameObject target = Instantiate(targetPrefab, targetArea);
         RectTransform rt = target.GetComponent<RectTransform>();
-        rt.anchoredPosition = new Vector2(x, y); // จุดกลางของเป้า
+        rt.anchoredPosition = new Vector2(x, y);
 
         Button btn = target.GetComponent<Button>();
         btn.onClick.AddListener(() => {
             score += 10;
             UpdateScoreText();
             Destroy(target);
+            activeTargets.Remove(target); // ลบออกจาก list
         });
 
         activeTargets.Add(target);
+
+        // 👉 เป้าจะหายไปเองภายใน 2 วินาทีถ้าไม่โดนยิง
+        Destroy(target, 2f);
     }
+
 
 
 
