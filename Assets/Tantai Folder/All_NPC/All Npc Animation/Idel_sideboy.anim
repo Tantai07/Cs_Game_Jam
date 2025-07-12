@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stand_Left
+  m_Name: Idel_sideboy
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -8028840340301621035, guid: 24f806c52dc40174cb5797b5c0a304d1, type: 3}
+      value: {fileID: 6304876153451627917, guid: 530042d997f4c16409975742037e9757, type: 3}
+    - time: 0.21666667
+      value: {fileID: -2684364392426905916, guid: 530042d997f4c16409975742037e9757, type: 3}
+    - time: 0.43333334
+      value: {fileID: -4831194729962101603, guid: 530042d997f4c16409975742037e9757, type: 3}
+    - time: 0.65
+      value: {fileID: 6464569010490504911, guid: 530042d997f4c16409975742037e9757, type: 3}
+    - time: 0.8333333
+      value: {fileID: 6464569010490504911, guid: 530042d997f4c16409975742037e9757, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,13 +52,17 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -8028840340301621035, guid: 24f806c52dc40174cb5797b5c0a304d1, type: 3}
+    - {fileID: 6304876153451627917, guid: 530042d997f4c16409975742037e9757, type: 3}
+    - {fileID: -2684364392426905916, guid: 530042d997f4c16409975742037e9757, type: 3}
+    - {fileID: -4831194729962101603, guid: 530042d997f4c16409975742037e9757, type: 3}
+    - {fileID: 6464569010490504911, guid: 530042d997f4c16409975742037e9757, type: 3}
+    - {fileID: 6464569010490504911, guid: 530042d997f4c16409975742037e9757, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.016666668
+    m_StopTime: 0.84999996
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

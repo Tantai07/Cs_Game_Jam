@@ -364,6 +364,12 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1361434344350189854}
+    - target: {fileID: 3206390563566919068, guid: f81784c926c09464b9c471af12519d8d, type: 3}
+      propertyPath: m_text
+      value: 'Mission: Find a new friend.
+
+        (0/10)'
+      objectReference: {fileID: 0}
     - target: {fileID: 3308958055905662914, guid: f81784c926c09464b9c471af12519d8d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
