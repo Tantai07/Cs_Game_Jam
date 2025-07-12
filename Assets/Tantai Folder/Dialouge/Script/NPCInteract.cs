@@ -33,7 +33,7 @@ public class NPCInteract : MonoBehaviour
     private bool hasGivenItem = false;
 
     [Header("Detection Offset")]
-    [SerializeField] private Vector2 detectOffset = Vector2.zero;
+    [SerializeField] private Vector2 detectOffset = new Vector2(0,0.9f);
 
 
     private void Start()
