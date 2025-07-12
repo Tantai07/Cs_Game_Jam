@@ -1007,6 +1007,10 @@ PrefabInstance:
       propertyPath: delay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 45171396135045492, guid: 40b4a25b0c1f19f4981b7f779350a3b0, type: 3}
+      propertyPath: friendTarget
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 718418730709268895, guid: 40b4a25b0c1f19f4981b7f779350a3b0, type: 3}
       propertyPath: m_SortingOrder
       value: 5
