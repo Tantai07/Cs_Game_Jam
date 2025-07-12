@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Pleum
   m_EditorClassIdentifier: 
   firstTimeDialogues:
-  - Halo
+  - Here comes my hero .
+  - 'Want to know something cool? '
   repeatDialogues:
-  - Find Duck
+  - 'Help me find it first. '
   conditionalDialogues:
-  - Thanks
+  - Thanks.  L K N T

@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f934b7a33345a004db94ae92ae51d3e3, type: 3}
   m_Name: Vin
   m_EditorClassIdentifier: 
-  firstTimeDialogues: []
-  repeatDialogues: []
+  firstTimeDialogues:
+  - 'Hello, friend. Do you want to pee? '
+  - 'Go pee in the garden next door. '
+  repeatDialogues:
+  - 'It looks like someone is in the bathroom. '
+  - 'Try to unlock it with the key. '
   conditionalDialogues:
   - 

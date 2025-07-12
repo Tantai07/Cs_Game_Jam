@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f934b7a33345a004db94ae92ae51d3e3, type: 3}
   m_Name: Tum
   m_EditorClassIdentifier: 
-  firstTimeDialogues: []
-  repeatDialogues: []
+  firstTimeDialogues:
+  - 'The weather here is so nice. '
+  repeatDialogues:
+  - '_ _ _ . . '
+  conditionalDialogues: []

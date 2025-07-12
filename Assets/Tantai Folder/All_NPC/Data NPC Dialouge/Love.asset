@@ -17,4 +17,5 @@ MonoBehaviour:
   - 'Here, try drinking this. '
   repeatDialogues:
   - 'Try talking to Carrot, he might tell you where to go. '
+  - March
   conditionalDialogues: []

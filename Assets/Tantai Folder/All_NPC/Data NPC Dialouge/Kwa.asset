@@ -17,4 +17,5 @@ MonoBehaviour:
   - 'Come tired, take a cold Red Bull. '
   repeatDialogues:
   - 'Save some Red Bull and share it with others. '
+  - 'Just one can. '
   conditionalDialogues: []
