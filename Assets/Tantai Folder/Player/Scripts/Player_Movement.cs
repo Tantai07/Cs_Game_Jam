@@ -63,6 +63,11 @@ public class Player_Movement : MonoBehaviour
     [Space(5)]
     public bool check_go_up;
 
+    [Space(5)]
+    public bool Aimlab;
+    public bool Rotate;
+    public bool Wire;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
