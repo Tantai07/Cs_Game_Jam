@@ -344,7 +344,7 @@ MonoBehaviour:
     itemName: Duck
     description: A cute yellow rubber duck.
     type: 1
-    icon: {fileID: -7670952442580773914, guid: af99ad94520634149a87e5a3644286d3, type: 3}
+    icon: {fileID: -8356044369073664190, guid: ec46d3338d0fc3745ab9550ba9472a41, type: 3}
     recover: 10
   textPopupObject: {fileID: 3026265969611342161}
 --- !u!61 &210498357040638254
