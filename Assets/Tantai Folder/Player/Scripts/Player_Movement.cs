@@ -113,11 +113,11 @@ public class Player_Movement : MonoBehaviour
     {
         if (canMove)
         {
-            rb.velocity = move_Input.normalized * move_Speed;
+            rb.linearVelocity = move_Input.normalized * move_Speed;
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
