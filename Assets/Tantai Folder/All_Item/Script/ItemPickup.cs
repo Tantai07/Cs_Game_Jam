@@ -7,6 +7,9 @@ public class ItemPickup : MonoBehaviour
     public Item itemData;
     private bool isPlayerInRange = false;
 
+    public AudioClip audio_pick;
+    public AudioClip audio_duck;
+
     [SerializeField] private GameObject textPopupObject;
 
     private void Start()
@@ -21,6 +24,14 @@ public class ItemPickup : MonoBehaviour
         {
             if (InventoryManager.Instance.AddItem(itemData))
             {
+                if(itemData.type == Item.ItemType.Energy)
+                {
+                    AudioManager.Instance.PlaySFX(audio_pick);
+                }
+                else
+                {
+                    AudioManager.Instance.PlaySFX(audio_duck);
+                }
                 Destroy(gameObject);
             }
             else

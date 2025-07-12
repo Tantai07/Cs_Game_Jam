@@ -119,6 +119,7 @@ public class AimLabUIManager : MonoBehaviour
         {
             btn.onClick.AddListener(() =>
             {
+                AudioManager.Instance.PlayClick();
                 score += 10;
                 UpdateScoreText();
                 RemoveTarget(target);

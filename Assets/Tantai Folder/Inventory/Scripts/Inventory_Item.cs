@@ -61,6 +61,7 @@ public class Inventory_Item : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if (myIndex < 0 || currentItem == null)
             return;
 
+        AudioManager.Instance.PlayClick();
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             if (currentItem.itemName == "Duck" || currentItem.itemName == "Key") return;
