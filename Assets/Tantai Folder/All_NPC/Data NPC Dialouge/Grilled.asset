@@ -15,6 +15,7 @@ MonoBehaviour:
   firstTimeDialogues:
   - 'What''s up? Ice''s friend, right? '
   - 'To the right, the kitchen is full of food. '
+  - 'If you want to go up the stairs, tell me the code. '
   repeatDialogues:
   - 'If you want to go up the stairs, tell me the code. '
   conditionalDialogues: []

@@ -15,6 +15,8 @@ MonoBehaviour:
   firstTimeDialogues:
   - 'Hey nerd, who invited you? '
   - 'Here, try drinking this. '
+  - 'Try talking to Carrot, he might tell you where to go. '
+  - March
   repeatDialogues:
   - 'Try talking to Carrot, he might tell you where to go. '
   - March

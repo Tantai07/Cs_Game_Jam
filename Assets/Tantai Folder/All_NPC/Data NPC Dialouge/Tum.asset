@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstTimeDialogues:
   - 'The weather here is so nice. '
+  - '_ _ _ . . '
   repeatDialogues:
   - '_ _ _ . . '
   conditionalDialogues: []
