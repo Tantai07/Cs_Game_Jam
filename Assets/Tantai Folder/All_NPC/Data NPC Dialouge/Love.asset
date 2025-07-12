@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstTimeDialogues:
   - 'Hey nerd, who invited you? '
-  repeatDialogues: []
+  - 'Here, try drinking this. '
+  repeatDialogues:
+  - 'Try talking to Carrot, he might tell you where to go. '
   conditionalDialogues: []

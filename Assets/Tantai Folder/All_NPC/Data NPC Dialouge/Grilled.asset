@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Grilled
   m_EditorClassIdentifier: 
   firstTimeDialogues:
-  - Heloo
+  - 'What''s up? Ice''s friend, right? '
+  - 'To the right, the kitchen is full of food. '
   repeatDialogues:
-  - go find password
-  conditionalDialogues:
-  - good
+  - 'If you want to go up the stairs, tell me the code. '
+  conditionalDialogues: []

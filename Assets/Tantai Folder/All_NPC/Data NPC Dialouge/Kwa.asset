@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f934b7a33345a004db94ae92ae51d3e3, type: 3}
   m_Name: Kwa
   m_EditorClassIdentifier: 
-  firstTimeDialogues: []
-  repeatDialogues: []
+  firstTimeDialogues:
+  - 'Just arrived? '
+  - 'Come tired, take a cold Red Bull. '
+  repeatDialogues:
+  - 'Save some Red Bull and share it with others. '
+  conditionalDialogues: []
