@@ -992,6 +992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hunggumja
       objectReference: {fileID: 0}
+    - target: {fileID: 5478720061092528143, guid: a446f73ef274c2e48b181b1100768c13, type: 3}
+      propertyPath: onlyGiveOnce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8000029355221051804, guid: a446f73ef274c2e48b181b1100768c13, type: 3}
       propertyPath: m_SortingOrder
       value: 3

@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f934b7a33345a004db94ae92ae51d3e3, type: 3}
   m_Name: Love
   m_EditorClassIdentifier: 
-  firstTimeDialogues: []
+  firstTimeDialogues:
+  - 'Hey nerd, who invited you? '
   repeatDialogues: []
+  conditionalDialogues: []
