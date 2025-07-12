@@ -138,7 +138,6 @@ public class NPCInteract : MonoBehaviour
             case ConditionType.HasItem:
                 if (InventoryManager.Instance.HasItem("Duck"))
                 {
-                    InventoryManager.Instance.RemoveItemByName("Duck");
                     return true;
                 }
                 return false;
