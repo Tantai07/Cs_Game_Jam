@@ -207,6 +207,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   hintE_UI: {fileID: 0}
+  hasTalked: 0
+  useCondition: 0
+  condition: 0
+  conditionValue: 1
+  correctPassword: 1234
+  wrongPasswordDialogue: Go Went Gone
+  givesItem: 1
+  itemToGive:
+    itemName: Energy
+    description: Restores 10 energy.
+    type: 0
+    icon: {fileID: 0}
+    recover: 10
+  onlyGiveOnce: 1
 --- !u!1 &3942411244489782444
 GameObject:
   m_ObjectHideFlags: 0
