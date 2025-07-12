@@ -1,41 +1,52 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 using TMPro;
+using System.Collections.Generic;
 
 public class AimLabUIManager : MonoBehaviour
 {
-    public GameObject aimLabPanel;
-    public GameObject targetPrefab;
-    public RectTransform targetArea;
+    public static AimLabUIManager Instance;
 
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI timerText;
-    public TextMeshProUGUI statusText;
-    public Button startButton;
-    public Button closeButton;
+    [Header("UI Elements")]
+    [SerializeField] private GameObject aimLabPanel;
+    [SerializeField] private RectTransform targetArea;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI statusText;
+    [SerializeField] private Button closeButton;
 
-    public float gameDuration = 30f;
+    [Header("Target Settings")]
+    [SerializeField] private GameObject targetPrefab;
+    [SerializeField] private float targetSize = 40f;
+    [SerializeField] private float spawnInterval = 0.7f;
+    [SerializeField] private float targetLifetime = 2f;
+
+    [Header("Game Settings")]
+    [SerializeField] private float gameDuration = 30f;
+    [SerializeField] private int winScore = 100;
+
     private float timeLeft;
-    private int score = 0;
-    private bool isRunning = false;
-    private List<GameObject> activeTargets = new List<GameObject>();
-
-    void Start()
+    private int score;
+    private bool isRunning;
+    private readonly List<GameObject> activeTargets = new List<GameObject>();
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+    }
+    private void Start()
     {
         aimLabPanel.SetActive(false);
-        startButton.onClick.AddListener(StartMiniGame);
         closeButton.onClick.AddListener(CloseMiniGame);
     }
 
-    void Update()
+    private void Update()
     {
         if (!isRunning) return;
 
         timeLeft -= Time.deltaTime;
-        timerText.text = "Time: " + timeLeft.ToString("0.0");
+        timerText.text = $"Time: {timeLeft:0.0}";
 
-        if (timeLeft <= 0 || score >= 100)
+        if (timeLeft <= 0 || score >= winScore)
         {
             EndGame();
         }
@@ -44,80 +55,99 @@ public class AimLabUIManager : MonoBehaviour
     public void StartMiniGame()
     {
         aimLabPanel.SetActive(true);
-        statusText.text = "";
-        score = 0;
-        timeLeft = gameDuration;
-        isRunning = true;
-        UpdateScoreText();
-        CancelInvoke();
-        InvokeRepeating("SpawnTarget", 0f, 0.7f);
+        ResetGameState();
+
+        InvokeRepeating(nameof(SpawnTarget), 0f, spawnInterval);
     }
 
-    void EndGame()
+    private void EndGame()
     {
+        if (!isRunning) return;
+
         isRunning = false;
-        CancelInvoke();
+        CancelInvoke(nameof(SpawnTarget));
         ClearTargets();
 
-        if (score >= 100)
-        {
-            statusText.text = "Win!";
-        }
-        else
-        {
-            statusText.text = "Failed";
-        }
+        statusText.text = score >= winScore ? "Win" : "Failed";
     }
 
-    public void CloseMiniGame()
+    private void CloseMiniGame()
     {
         EndGame();
         aimLabPanel.SetActive(false);
     }
 
-    void SpawnTarget()
+    private void ResetGameState()
     {
-        if (!isRunning) return;
+        score = 0;
+        timeLeft = gameDuration;
+        isRunning = true;
+        statusText.text = string.Empty;
+        UpdateScoreText();
+        ClearTargets();
+    }
+
+    private void SpawnTarget()
+    {
+        if (!isRunning || targetPrefab == null || targetArea == null) return;
 
         Vector2 areaSize = targetArea.rect.size;
-        float targetWidth = 40f;
-        float targetHeight = 40f;
 
-        float x = Random.Range(targetWidth / 2f, areaSize.x - targetWidth / 2f);
-        float y = Random.Range(targetHeight / 2f, areaSize.y - targetHeight / 2f);
+        float x = Random.Range(targetSize / 2f, areaSize.x - targetSize / 2f);
+        float y = Random.Range(targetSize / 2f, areaSize.y - targetSize / 2f);
 
         GameObject target = Instantiate(targetPrefab, targetArea);
         RectTransform rt = target.GetComponent<RectTransform>();
+
+        rt.sizeDelta = new Vector2(targetSize, targetSize);
+        rt.anchorMin = new Vector2(0, 0);
+        rt.anchorMax = new Vector2(0, 0);
+        rt.pivot = new Vector2(0.5f, 0.5f);
         rt.anchoredPosition = new Vector2(x, y);
 
+        float randomLifetime = Random.Range(0.6f, 3f);
+
+        TargetBehavior behavior = target.GetComponent<TargetBehavior>();
+        if (behavior != null)
+        {
+            behavior.Initialize(randomLifetime);
+        }
+
         Button btn = target.GetComponent<Button>();
-        btn.onClick.AddListener(() => {
-            score += 10;
-            UpdateScoreText();
-            Destroy(target);
-            activeTargets.Remove(target); // ลบออกจาก list
-        });
+        if (btn != null)
+        {
+            btn.onClick.AddListener(() =>
+            {
+                score += 10;
+                UpdateScoreText();
+                RemoveTarget(target);
+            });
+        }
 
         activeTargets.Add(target);
-
-        // 👉 เป้าจะหายไปเองภายใน 2 วินาทีถ้าไม่โดนยิง
-        Destroy(target, 2f);
+        Destroy(target, randomLifetime);
     }
 
-
-
-
-    void UpdateScoreText()
+    private void RemoveTarget(GameObject target)
     {
-        scoreText.text = "Score: " + score + " / 100";
+        if (activeTargets.Contains(target))
+            activeTargets.Remove(target);
+
+        if (target != null)
+            Destroy(target);
     }
 
-    void ClearTargets()
+    private void ClearTargets()
     {
-        foreach (var t in activeTargets)
+        foreach (var target in activeTargets)
         {
-            if (t != null) Destroy(t);
+            if (target != null) Destroy(target);
         }
         activeTargets.Clear();
+    }
+
+    private void UpdateScoreText()
+    {
+        scoreText.text = $"Score: {score} / {winScore}";
     }
 }

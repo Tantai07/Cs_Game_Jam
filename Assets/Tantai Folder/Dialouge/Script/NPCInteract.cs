@@ -135,6 +135,10 @@ public class NPCInteract : MonoBehaviour
             case ConditionType.Password:
                 return passwordVerified;
 
+            case ConditionType.FinishQuest:
+                //รอแก้
+                return true;
+
             default:
                 return false;
         }
@@ -208,5 +212,6 @@ public enum ConditionType
 {
     HasFriend,
     HasItem,
-    Password
+    Password,
+    FinishQuest
 }
