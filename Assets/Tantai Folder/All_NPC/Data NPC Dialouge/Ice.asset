@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: Ice
   m_EditorClassIdentifier: 
   firstTimeDialogues:
-  - 'Hello, friend. Do you want to pee? '
-  - 'Go pee in the garden next door. '
+  - 'Hey, why are you here? I''m pooping. '
   repeatDialogues:
-  - 'It looks like someone is in the bathroom. '
-  - 'Try to unlock it with the key. '
+  - 'Do you know all my friends yet? '
   conditionalDialogues:
-  - 
+  - Congrat !!
