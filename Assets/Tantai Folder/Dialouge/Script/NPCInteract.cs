@@ -32,6 +32,9 @@ public class NPCInteract : MonoBehaviour
     public bool onlyGiveOnce = true;
     private bool hasGivenItem = false;
 
+    [Header("Detection Offset")]
+    [SerializeField] private Vector2 detectOffset = Vector2.zero;
+
 
     private void Start()
     {
@@ -72,7 +75,8 @@ public class NPCInteract : MonoBehaviour
 
     void DetectPlayer()
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, detectRadius, playerLayer);
+        Vector2 detectPoint = (Vector2)transform.position + detectOffset;
+        Collider2D hit = Physics2D.OverlapCircle(detectPoint, detectRadius, playerLayer);
         isPlayerNearby = (hit != null && hit.CompareTag("Player"));
 
         if (hintE_UI != null && !isTalking)
@@ -136,8 +140,12 @@ public class NPCInteract : MonoBehaviour
                 return passwordVerified;
 
             case ConditionType.FinishQuest:
-                //รอแก้
-                return true;
+                Player_Movement player = Player_Movement.Instance;
+                if (player.Aimlab && player.Wire && player.Rotate)
+                {
+                    return true;
+                }
+                return false;
 
             default:
                 return false;
@@ -198,7 +206,7 @@ public class NPCInteract : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + detectOffset, detectRadius);
     }
 }
 

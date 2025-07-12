@@ -48,6 +48,7 @@ public class AimLabUIManager : MonoBehaviour
 
         if (timeLeft <= 0 || score >= winScore)
         {
+            Player_Movement.Instance.Aimlab = true;
             EndGame();
         }
     }
