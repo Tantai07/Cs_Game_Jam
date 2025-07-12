@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstTimeDialogues: []
   repeatDialogues: []
+  conditionalDialogues:
+  - 

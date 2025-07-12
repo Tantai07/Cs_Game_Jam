@@ -309,6 +309,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   hintE_UI: {fileID: 0}
+  hasTalked: 0
+  useCondition: 0
+  condition: 1
+  conditionValue: 1
+  correctPassword: 1234
 --- !u!1 &5847564783165718980
 GameObject:
   m_ObjectHideFlags: 0

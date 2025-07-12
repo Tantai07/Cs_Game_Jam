@@ -21,7 +21,7 @@ public class Player_Movement : MonoBehaviour
     [Header("Stat")]
     [Range(0, 100)]
     public float stress;
-    public float maxStress = 100f;
+    public float maxStress = 120f;
     public float minStress = 0f;
 
     [Space(5)]
@@ -39,7 +39,7 @@ public class Player_Movement : MonoBehaviour
     [Space(5)]
     [Header("Mission")]
     public int friendTarget = 3;
-    private int friendFound = 0;
+    public int friendFound = 0;
     private bool missionCompleted = false;
 
     [Space(5)]
@@ -52,8 +52,13 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] Animator anim_Transition;
     public float delay = 1.5f;
 
-    // ** เพิ่ม Animator ตัวนี้ **
     private Animator animator;
+
+    [Space(5)]
+    [Header("Inventory Full")]
+    public TextMeshProUGUI UI_Inventory_Full;
+    public float delay_Close = 3f;
+    private Coroutine inventoryFullRoutine;
 
     private void Awake()
     {
@@ -73,6 +78,9 @@ public class Player_Movement : MonoBehaviour
         animator = GetComponent<Animator>();  // ** เพิ่มบรรทัดนี้ **
 
         group = GameObject.Find("UI_Player");
+
+        UI_Inventory_Full = group.transform.Find("Inventory_Full").GetComponent<TextMeshProUGUI>();
+        UI_Inventory_Full.gameObject.SetActive(false);
 
         stressText = group.transform.Find("Text_Stress")?.GetComponent<TextMeshProUGUI>();
         missionText = group.transform.Find("Text_Mission")?.GetComponent<TextMeshProUGUI>();
@@ -181,8 +189,14 @@ public class Player_Movement : MonoBehaviour
 
     private void UpdateStressUI()
     {
-        if (stressText != null)
-            stressText.text = $"Stress: {stress:0}/100";
+        if(stress != maxStress)
+        {
+            stressText.text = $"Stress: {stress:0}/{maxStress}";
+        }
+        else
+        {
+            stressText.text = $"Stress: <color=#FF0000>Full</color>";
+        }
     }
 
     // ---------- Mission ----------
@@ -213,5 +227,38 @@ public class Player_Movement : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         anim_Transition.SetTrigger("End");
+    }
+    public void Show_Inventory_Full()
+    {
+        if (inventoryFullRoutine != null)
+            StopCoroutine(inventoryFullRoutine);
+
+        inventoryFullRoutine = StartCoroutine(WaitForClose());
+    }
+    private IEnumerator WaitForClose()
+    {
+        UI_Inventory_Full.gameObject.SetActive(true);
+
+        Color originalColor = UI_Inventory_Full.color;
+        Color color = originalColor;
+        color.a = 1f;
+        UI_Inventory_Full.color = color;
+
+        yield return new WaitForSeconds(0.5f);
+
+        float fadeDuration = 1.5f;
+        float t = 0f;
+
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, t / fadeDuration);
+            color.a = alpha;
+            UI_Inventory_Full.color = color;
+            yield return null;
+        }
+
+        UI_Inventory_Full.gameObject.SetActive(false);
+        UI_Inventory_Full.color = originalColor;
     }
 }

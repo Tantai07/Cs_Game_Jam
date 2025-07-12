@@ -7,10 +7,11 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
+    [Header("Inventory Data")]
     public List<Item> items = new List<Item>();
     public List<Inventory_Item> uiSlots = new List<Inventory_Item>();
 
-    [SerializeField]private int selectedIndex = -1;
+    [SerializeField] private int selectedIndex = -1;
 
     [Header("Item Info UI")]
     private GameObject text_Object;
@@ -18,6 +19,7 @@ public class InventoryManager : MonoBehaviour
     private TMP_Text nameText;
     private TMP_Text descriptionText;
 
+    #region Unity Lifecycle
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -35,12 +37,18 @@ public class InventoryManager : MonoBehaviour
         text_Object = GameObject.Find("Group_Text");
         frame_Object = GameObject.Find("Group_Frame");
 
-        nameText = text_Object.transform.Find("NameText")?.GetComponent<TMP_Text>();
-        descriptionText = text_Object.transform.Find("DescriptionText")?.GetComponent<TMP_Text>();
-        text_Object.SetActive(false);
-        frame_Object.SetActive(false);
-    }
+        if (text_Object != null)
+            nameText = text_Object.transform.Find("NameText")?.GetComponent<TMP_Text>();
 
+        if (text_Object != null)
+            descriptionText = text_Object.transform.Find("DescriptionText")?.GetComponent<TMP_Text>();
+
+        text_Object?.SetActive(false);
+        frame_Object?.SetActive(false);
+    }
+    #endregion
+
+    #region Public Methods
     public bool AddItem(Item item)
     {
         if (items.Count >= uiSlots.Count)
@@ -55,17 +63,14 @@ public class InventoryManager : MonoBehaviour
 
     public void UseSelectedItem()
     {
-        if (selectedIndex < 0 || selectedIndex >= items.Count)
-        {
+        if (!IsValidIndex(selectedIndex))
             return;
-        }
 
         Item itemToUse = items[selectedIndex];
 
-
         if (itemToUse.type == ItemType.Energy)
         {
-            Player_Movement.Instance.ReduceStress(itemToUse.recover);
+            Player_Movement.Instance?.ReduceStress(itemToUse.recover);
         }
 
         RemoveSelectedItem();
@@ -73,32 +78,24 @@ public class InventoryManager : MonoBehaviour
 
     public void RemoveSelectedItem()
     {
-        if (selectedIndex < 0 || selectedIndex >= items.Count)
-        {
+        if (!IsValidIndex(selectedIndex))
             return;
-        }
 
-        text_Object.SetActive(false);
-        frame_Object.SetActive(false);
         items.RemoveAt(selectedIndex);
-
         selectedIndex = -1;
 
+        DisplayItemInfo(null);
         UpdateUI();
     }
 
-
     public void SelectSlot(int index)
     {
-        if (index < 0 || index >= items.Count)
+        if (!IsValidIndex(index))
         {
             selectedIndex = -1;
             DisplayItemInfo(null);
-            UpdateSelectionVisuals();
-            return;
         }
-
-        if (selectedIndex == index)
+        else if (selectedIndex == index)
         {
             selectedIndex = -1;
             DisplayItemInfo(null);
@@ -112,27 +109,6 @@ public class InventoryManager : MonoBehaviour
         UpdateSelectionVisuals();
     }
 
-    private void UpdateSelectionVisuals()
-    {
-        for (int i = 0; i < uiSlots.Count; i++)
-        {
-            uiSlots[i].SetSelected(i == selectedIndex);
-        }
-    }
-
-    public void UpdateUI()
-    {
-        for (int i = 0; i < uiSlots.Count; i++)
-        {
-            if (i < items.Count)
-                uiSlots[i].SetItem(items[i], i);
-            else
-                uiSlots[i].ClearSlot();
-        }
-
-        UpdateSelectionVisuals();
-    }
-
     public void ClearInventory()
     {
         items.Clear();
@@ -141,22 +117,63 @@ public class InventoryManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void UpdateUI()
+    {
+        for (int i = 0; i < uiSlots.Count; i++)
+        {
+            if (i < items.Count)
+            {
+                uiSlots[i].SetItem(items[i], i);
+            }
+            else
+            {
+                uiSlots[i].ClearSlot();
+            }
+        }
+
+        UpdateSelectionVisuals();
+    }
+
     public void DisplayItemInfo(Item item)
     {
         if (text_Object == null || frame_Object == null || nameText == null || descriptionText == null)
             return;
 
-        if (item != null)
+        bool hasItem = item != null;
+
+        text_Object.SetActive(hasItem);
+        frame_Object.SetActive(hasItem);
+
+        if (hasItem)
         {
-            nameText.text = item.itemName + " :";
+            nameText.text = $"{item.itemName} :";
             descriptionText.text = item.description;
-            text_Object.SetActive(true);
-            frame_Object.SetActive(true);
-        }
-        else
-        {
-            text_Object.SetActive(false);
-            frame_Object.SetActive(false);
         }
     }
+
+    public bool HasItem(string itemName)
+    {
+        foreach (var item in items)
+        {
+            if (item.itemName == itemName)
+                return true;
+        }
+        return false;
+    }
+    #endregion
+
+    #region Helpers
+    private void UpdateSelectionVisuals()
+    {
+        for (int i = 0; i < uiSlots.Count; i++)
+        {
+            uiSlots[i].SetSelected(i == selectedIndex);
+        }
+    }
+
+    private bool IsValidIndex(int index)
+    {
+        return index >= 0 && index < items.Count;
+    }
+    #endregion
 }

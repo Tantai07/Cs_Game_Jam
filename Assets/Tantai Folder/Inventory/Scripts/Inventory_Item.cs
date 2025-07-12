@@ -67,6 +67,8 @@ public class Inventory_Item : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
+            if (currentItem.itemName == "Teddy Bear") return;
+
             InventoryManager.Instance.RemoveSelectedItem();
         }
     }

@@ -25,7 +25,7 @@ public class ItemPickup : MonoBehaviour
             }
             else
             {
-                Debug.Log("Full");
+                Player_Movement.Instance.Show_Inventory_Full();
             }
         }
     }
