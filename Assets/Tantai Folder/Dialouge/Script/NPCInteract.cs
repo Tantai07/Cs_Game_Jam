@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NPCInteract : MonoBehaviour
 {
@@ -120,6 +121,11 @@ public class NPCInteract : MonoBehaviour
         DialogueManager.Instance.HideDialogue();
         DialogueManager.Instance.OnDialogueComplete = null;
         isTalking = false;
+
+        if (Player_Movement.Instance.friendFound >= Player_Movement.Instance.friendTarget)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
     bool IsConditionMet()
     {
