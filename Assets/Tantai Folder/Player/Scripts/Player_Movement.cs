@@ -52,6 +52,9 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] Animator anim_Transition;
     public float delay = 1.5f;
 
+    // ** เพิ่ม Animator ตัวนี้ **
+    private Animator animator;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -67,6 +70,7 @@ public class Player_Movement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();  // ** เพิ่มบรรทัดนี้ **
 
         group = GameObject.Find("UI_Player");
 
@@ -96,10 +100,44 @@ public class Player_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (canMove){
+        if (canMove)
+        {
             rb.velocity = move_Input.normalized * move_Speed;
-        }else{
+        }
+        else
+        {
             rb.velocity = Vector2.zero;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        UpdateAnimation(move_Input);
+    }
+
+    private void UpdateAnimation(Vector2 move)
+    {
+        float speed = move.sqrMagnitude;
+        animator.SetFloat("Speed", speed);
+
+        if (speed > 0.01f)
+        {
+            // ถ้าเดินแนวนอนเยอะกว่าแนวตั้ง
+            if (Mathf.Abs(move.x) > Mathf.Abs(move.y))
+            {
+                animator.SetFloat("MoveX", Mathf.Sign(move.x)); // +1 หรือ -1
+                animator.SetFloat("MoveY", 0f);
+            }
+            else
+            {
+                animator.SetFloat("MoveX", 0f);
+                animator.SetFloat("MoveY", Mathf.Sign(move.y)); // +1 หรือ -1
+            }
+        }
+        else
+        {
+            animator.SetFloat("MoveX", 0f);
+            animator.SetFloat("MoveY", 0f);
         }
     }
 
