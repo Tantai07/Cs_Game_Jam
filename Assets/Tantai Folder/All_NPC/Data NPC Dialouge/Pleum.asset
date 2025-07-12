@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pleum
   m_EditorClassIdentifier: 
   firstTimeDialogues:
-  - Halo
+  - 
   repeatDialogues:
   - Find Duck
   conditionalDialogues:
